@@ -1,6 +1,8 @@
 import 'package:bmi_calulator/Home_page.dart';
+import 'package:bmi_calulator/constants.dart';
 import 'package:flutter/material.dart';
-import 'calculate.dart';
+
+import 'bottombtn.dart';
 
 class Result_pg extends StatefulWidget {
   Result_pg({
@@ -9,85 +11,77 @@ class Result_pg extends StatefulWidget {
     required this.gettxt,
     required this.getcal,
     required this.txtcol,
-
-});
-  var stg,getcol,gettxt,getcal,txtcol;
-
-
-
+  });
+  var stg, getcol, gettxt, getcal, txtcol;
 
   @override
   State<Result_pg> createState() => _Result_pgState();
 }
 
 class _Result_pgState extends State<Result_pg> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('BMI Calculator Result')),
+        title: Center(child: Text('BMI RESULT')),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-
-          SizedBox(height: 25,),
-          
-          Center(child: Text('YOUR RESULTS',style: TextStyle(fontSize: 40),)),
-
-          SizedBox(height: 25,),
+          SizedBox(
+            height: 25.0,
+          ),
+          Container(
+            child: Text('YOUR RESULTS', style: kTitleTextStyle),
+          ),
 
           //resultbox
 
-          Container(
-            height: 500,
-            width: 350,
-            color: widget.getcol,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-
-                Text(widget.stg,
-                style: TextStyle(fontSize: 50,color: widget.txtcol),
-                ),
-                
-                Text(widget.getcal.toString(),
-                  style: TextStyle(fontSize: 50 ,color: widget.txtcol),
-                ),
-                
-                Center(
-                  child: Text(widget.gettxt,
-                      style: TextStyle(fontSize: 30 , color: widget.txtcol)
+          Expanded(
+            // flex: 2,
+            child: Container(
+              padding: EdgeInsets.all(15.0),
+              margin: EdgeInsets.all(15.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.0),
+                color: Color(0xFF1D1F33),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    widget.stg,
+                    style: kResultTextStyle,
                   ),
-                ),
-              ],
-
+                  Text(
+                    widget.getcal.toString(),
+                    style: kBMITextStyle,
+                  ),
+                  Text(
+                    widget.gettxt,
+                    textAlign: TextAlign.center,
+                    style: kBodyTextStyle,
+                  ),
+                ],
+              ),
             ),
           ),
 
           //end result box
 
-          SizedBox(height: 25,),
-
           //goback recalcukate
 
           GestureDetector(
-            onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Home_pg()));
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Home_pg()));
             },
-            child: Container(
-              height: 50,
-              width: 300,
-              color:Color(0xFFE88100),
-              child: Center(child: Text('Re-Calculate',
-                style: TextStyle(fontSize: 30,color: Colors.black),
-
-              )
-              ),
+            child: Bottombutton(
+              txt: 'RE-CALCULATE',
             ),
           ),
-
         ],
       ),
     );

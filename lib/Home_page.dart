@@ -18,7 +18,7 @@ class Home_pg extends StatefulWidget {
 class _Home_pgState extends State<Home_pg> {
   int weight = 50;
   int age = 15;
-  int height = 150;
+  int height = 180;
 
   //result=(_weight/_height/_height)*10000;
   @override
@@ -134,6 +134,7 @@ class _Home_pgState extends State<Home_pg> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Actionbutton(
+                              btno: 2,
                               onpress: () {
                                 setState(() {
                                   weight--;
@@ -142,6 +143,7 @@ class _Home_pgState extends State<Home_pg> {
                               icon: Icons.minimize,
                             ),
                             Actionbutton(
+                              btno: 1,
                               onpress: () {
                                 setState(() {
                                   weight++;
@@ -178,6 +180,7 @@ class _Home_pgState extends State<Home_pg> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Actionbutton(
+                              btno: 3,
                               onpress: () {
                                 setState(() {
                                   age--;
@@ -186,6 +189,7 @@ class _Home_pgState extends State<Home_pg> {
                               icon: Icons.minimize,
                             ),
                             Actionbutton(
+                              btno: 4,
                               onpress: () {
                                 setState(() {
                                   age++;
@@ -227,7 +231,9 @@ class _Home_pgState extends State<Home_pg> {
                         txtcol: txtcolr,
                       )));
             },
-            child: Bottombutton(),
+            child: Bottombutton(
+              txt: "CALCULATE",
+            ),
           ),
         ],
       ),

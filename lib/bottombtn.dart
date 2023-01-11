@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 class Bottombutton extends StatelessWidget {
-  const Bottombutton({
-    Key? key,
-  }) : super(key: key);
+  Bottombutton({required this.txt});
+  final String txt;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class Bottombutton extends StatelessWidget {
       height: kBottomContainerHeight,
       child: Center(
           child: Text(
-        'CALCULATE',
+        txt,
         style: kLargeButtonTextStyle,
       )),
     );
