@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
+import '../constants.dart';
 
 class Bottombutton extends StatelessWidget {
   Bottombutton({required this.txt});

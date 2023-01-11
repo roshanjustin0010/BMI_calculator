@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
+import '../constants.dart';
 
 class Actionbutton extends StatelessWidget {
   Actionbutton({required this.onpress, required this.icon, this.btno});

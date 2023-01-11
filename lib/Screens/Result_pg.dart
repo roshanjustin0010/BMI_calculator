@@ -1,8 +1,7 @@
-import 'package:bmi_calulator/Home_page.dart';
+import 'package:bmi_calulator/Screens/Home_page.dart';
+import 'package:bmi_calulator/Widgets/bottombtn.dart';
 import 'package:bmi_calulator/constants.dart';
 import 'package:flutter/material.dart';
-
-import 'bottombtn.dart';
 
 class Result_pg extends StatefulWidget {
   Result_pg({

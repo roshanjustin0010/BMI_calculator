@@ -7,7 +7,6 @@ const kBottomContainerColour = Color(0xFFEB1555);
 const kFloatIconColor = Color(0xFF1C2033);
 
 const kLabelTextStyle = TextStyle(
-  fontSize: 25.0,
   color: Color(0xFF8D8E98),
 );
 

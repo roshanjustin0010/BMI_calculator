@@ -1,12 +1,12 @@
+import 'package:bmi_calulator/Screens/Result_pg.dart';
+import 'package:bmi_calulator/Widgets/slider_height.dart';
 import 'package:bmi_calulator/constants.dart';
-import 'package:bmi_calulator/slider_height.dart';
 import 'package:flutter/material.dart';
 
-import 'Result_pg.dart';
-import 'bottombtn.dart';
-import 'calculate.dart';
-import 'floatbutton.dart';
-import 'usable_card.dart';
+import '../Brain/calculate.dart';
+import '../Widgets/bottombtn.dart';
+import '../Widgets/floatbutton.dart';
+import '../Widgets/usable_card.dart';
 
 class Home_pg extends StatefulWidget {
   const Home_pg({Key? key}) : super(key: key);
