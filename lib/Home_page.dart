@@ -3,7 +3,9 @@ import 'package:bmi_calulator/slider_height.dart';
 import 'package:flutter/material.dart';
 
 import 'Result_pg.dart';
+import 'bottombtn.dart';
 import 'calculate.dart';
+import 'floatbutton.dart';
 import 'usable_card.dart';
 
 class Home_pg extends StatefulWidget {
@@ -17,30 +19,6 @@ class _Home_pgState extends State<Home_pg> {
   int weight = 50;
   int age = 15;
   int height = 150;
-
-  void _addweight() {
-    setState(() {
-      weight++;
-    });
-  }
-
-  void _subweight() {
-    setState(() {
-      weight--;
-    });
-  }
-
-  void _addage() {
-    setState(() {
-      age++;
-    });
-  }
-
-  void _subage() {
-    setState(() {
-      age--;
-    });
-  }
 
   //result=(_weight/_height/_height)*10000;
   @override
@@ -61,16 +39,19 @@ class _Home_pgState extends State<Home_pg> {
                 Expanded(
                   child: Usablecard(
                     cardChild: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
                           Icons.male,
-                          size: 75,
+                          size: 100.0,
                           semanticLabel: 'male',
+                        ),
+                        SizedBox(
+                          height: 15.0,
                         ),
                         Text(
                           'Male',
-                          style: TextStyle(fontSize: 30),
+                          style: kLabelTextStyle,
                         )
                       ],
                     ),
@@ -79,22 +60,26 @@ class _Home_pgState extends State<Home_pg> {
 
                 //female box
                 Expanded(
-                    child: Usablecard(
-                  cardChild: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(
-                        Icons.female,
-                        size: 75,
-                        semanticLabel: 'Female',
-                      ),
-                      Text(
-                        'Female',
-                        style: TextStyle(fontSize: 30),
-                      )
-                    ],
+                  child: Usablecard(
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.female,
+                          size: 100.0,
+                          semanticLabel: 'Female',
+                        ),
+                        SizedBox(
+                          height: 15.0,
+                        ),
+                        Text(
+                          'Female',
+                          style: kLabelTextStyle,
+                        )
+                      ],
+                    ),
                   ),
-                )),
+                ),
               ],
             ),
           ),
@@ -119,83 +104,100 @@ class _Home_pgState extends State<Home_pg> {
               ),
             ),
           ),
+
           //end of height slider
 
           //weight age box
 
           Expanded(
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 //weight box
                 Expanded(
-                  child: Column(
-                    children: [
-                      Text(
-                        'Weight',
-                        style: TextStyle(fontSize: 20),
-                      ),
+                  child: Usablecard(
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(
+                          'Weight',
+                          style: kLabelTextStyle,
+                        ),
 
-                      Text(
-                        '$weight',
-                        style: TextStyle(fontSize: 30),
-                      ),
+                        Text(
+                          '$weight',
+                          style: kNumberTextStyle,
+                        ),
 
-                      //+ - button
-                      Row(
-                        children: [
-                          FloatingActionButton(
-                            onPressed: _subweight,
-                            backgroundColor: Color(0xFFE88100),
-                            child: Icon(Icons.minimize),
-                            heroTag: "btn3",
-                          ),
-                          FloatingActionButton(
-                            onPressed: _addweight,
-                            backgroundColor: Color(0xFFE88100),
-                            child: Icon(Icons.add),
-                            heroTag: "btn4",
-                          )
-                        ],
-                      ),
-                      //end + - button
-                    ],
+                        //+ - button
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Actionbutton(
+                              onpress: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                              icon: Icons.minimize,
+                            ),
+                            Actionbutton(
+                              onpress: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                              icon: Icons.add,
+                            ),
+                          ],
+                        ),
+                        //end + - button
+                      ],
+                    ),
                   ),
                 ),
 
                 //Age box
                 Expanded(
-                  child: Column(
-                    children: [
-                      Text(
-                        'Age',
-                        style: TextStyle(fontSize: 20),
-                      ),
+                  child: Usablecard(
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(
+                          'Age',
+                          style: kLabelTextStyle,
+                        ),
 
-                      Text(
-                        '$age',
-                        style: TextStyle(fontSize: 30),
-                      ),
+                        Text(
+                          '$age',
+                          style: kNumberTextStyle,
+                        ),
 
-                      //+ - button
-                      Row(
-                        children: [
-                          FloatingActionButton(
-                            onPressed: _subage,
-                            backgroundColor: Color(0xFFE88100),
-                            child: Icon(Icons.minimize),
-                            heroTag: "btn1",
-                          ),
-                          FloatingActionButton(
-                            onPressed: _addage,
-                            backgroundColor: Color(0xFFE88100),
-                            child: Icon(Icons.add),
-                            heroTag: "btn2",
-                          )
-                        ],
-                      ),
-
-                      //end + - button
-                    ],
+                        //+ - button
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Actionbutton(
+                              onpress: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                              icon: Icons.minimize,
+                            ),
+                            Actionbutton(
+                              onpress: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                              icon: Icons.add,
+                            ),
+                          ],
+                        ),
+                        //end + - button
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -225,18 +227,7 @@ class _Home_pgState extends State<Home_pg> {
                         txtcol: txtcolr,
                       )));
             },
-            child: Container(
-              width: double.infinity,
-              margin: EdgeInsets.only(top: 10.0),
-              padding: EdgeInsets.only(bottom: 20.0),
-              color: Color(0xFFE88100),
-              height: kBottomContainerHeight,
-              child: Center(
-                  child: Text(
-                'Calculate',
-                style: TextStyle(fontSize: 30, color: Colors.black),
-              )),
-            ),
+            child: Bottombutton(),
           ),
         ],
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'constants.dart';
+
 class Heightslider extends StatelessWidget {
   Heightslider({required this.height, required this.slide});
   final int height;
@@ -11,7 +13,7 @@ class Heightslider extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Text(
-          height.toString(),
+          'Height',
           style: kLabelTextStyle,
         ),
 
