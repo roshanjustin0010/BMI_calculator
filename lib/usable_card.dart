@@ -1,3 +1,4 @@
+import 'package:bmi_calulator/constants.dart';
 import 'package:flutter/material.dart';
 
 class Usablecard extends StatelessWidget {
@@ -11,7 +12,7 @@ class Usablecard extends StatelessWidget {
       margin: EdgeInsets.all(15.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
-        color: Color(0xFF0A0E35),
+        color: kActiveCardColour,
       ),
       child: cardChild,
     );

@@ -1,4 +1,5 @@
 import 'package:bmi_calulator/constants.dart';
+import 'package:bmi_calulator/slider_height.dart';
 import 'package:flutter/material.dart';
 
 import 'Result_pg.dart';
@@ -13,31 +14,31 @@ class Home_pg extends StatefulWidget {
 }
 
 class _Home_pgState extends State<Home_pg> {
-  int _weight = 50;
-  int _age = 15;
-  int _height = 150;
+  int weight = 50;
+  int age = 15;
+  int height = 150;
 
   void _addweight() {
     setState(() {
-      _weight++;
+      weight++;
     });
   }
 
   void _subweight() {
     setState(() {
-      _weight--;
+      weight--;
     });
   }
 
   void _addage() {
     setState(() {
-      _age++;
+      age++;
     });
   }
 
   void _subage() {
     setState(() {
-      _age--;
+      age--;
     });
   }
 
@@ -102,52 +103,23 @@ class _Home_pgState extends State<Home_pg> {
           //height slider
 
           Expanded(
-              child: Usablecard(
-            cardChild: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  'Height',
-                  style: TextStyle(fontSize: 30),
+            child: Usablecard(
+              cardChild: Heightslider(
+                height: height,
+                slide: Slider(
+                  value: height.toDouble(),
+                  min: 120,
+                  max: 220,
+                  onChanged: (double newVal) {
+                    setState(() {
+                      height = newVal.toInt();
+                    });
+                  },
                 ),
-
-                Text(
-                  '$_height cm',
-                  style: TextStyle(fontSize: 30),
-                ),
-
-                //slider
-
-                SliderTheme(
-                  data: SliderTheme.of(context).copyWith(
-                      activeTrackColor: Colors.grey.shade600,
-                      inactiveTrackColor: Colors.white,
-                      thumbColor: Color(0xFFE88100),
-                      overlayColor: Color(0xFF7a7a7a),
-                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 18),
-                      overlayShape: RoundSliderOverlayShape(overlayRadius: 25)),
-                  child: Slider(
-                    value: _height.toDouble(),
-                    min: 120,
-                    max: 220,
-                    // activeColor: Color(0xff027b8d),
-                    onChanged: (double newVal) {
-                      setState(() {
-                        _height = newVal.toInt();
-                      });
-                    },
-                  ),
-                ),
-
-                //end slider
-              ],
+              ),
             ),
-          )),
-          //end of height slider
-
-          SizedBox(
-            height: 25,
           ),
+          //end of height slider
 
           //weight age box
 
@@ -164,7 +136,7 @@ class _Home_pgState extends State<Home_pg> {
                       ),
 
                       Text(
-                        '$_weight',
+                        '$weight',
                         style: TextStyle(fontSize: 30),
                       ),
 
@@ -200,7 +172,7 @@ class _Home_pgState extends State<Home_pg> {
                       ),
 
                       Text(
-                        '$_age',
+                        '$age',
                         style: TextStyle(fontSize: 30),
                       ),
 
@@ -237,7 +209,7 @@ class _Home_pgState extends State<Home_pg> {
           GestureDetector(
             onTap: () {
               Calculatorbrain calc =
-                  Calculatorbrain(height: _height, weight: _weight);
+                  Calculatorbrain(height: height, weight: weight);
               var calbmi = calc.caluculatebmi();
               var stage = calc.getresult();
               var txt = calc.gettext();
